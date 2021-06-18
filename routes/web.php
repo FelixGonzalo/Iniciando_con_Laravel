@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CursoController;
+use App\Http\Controllers\ContactanosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,3 +72,7 @@ Route::resource('asignaturas', CursoController::class)->parameters(['asignaturas
 
 // para contenido estatico  uri, viewname
 Route::view('nosotros', 'nosotros')->name('nosotros');
+
+//para mandar correos electronicos
+Route::get('contactanos', [ContactanosController::class, 'index'])->name('contactanos.index');
+Route::post('contactanos', [ContactanosController::class, 'store'])->name('contactanos.store');
