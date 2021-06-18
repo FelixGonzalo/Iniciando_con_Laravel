@@ -3,11 +3,18 @@
 @section('title', 'Cursos ' . $curso->name)
 
 @section('content')
-{{-- <h1>Bienvenido al curso: <?php echo $curso;?></h1> --}}
-<h1>Bienvenido al curso: {{$curso->name}}</h1>
-<a href="{{route('cursos.index')}}">Volver</a>
-<a href="{{route('cursos.edit', $curso)}}">Editar</a>
-<br>
-<p>Categoria: {{$curso->category}}</p>
-<p>Descripción: {{$curso->description}}</p>
+  {{-- <h1>Bienvenido al curso: <?php echo $curso;?></h1> --}}
+  <h1>Bienvenido al curso: {{$curso->name}}</h1>
+  <a href="{{route('cursos.index')}}">Volver</a>
+  <a href="{{route('cursos.edit', $curso)}}">Editar</a>
+  <br>
+  <p>Categoria: {{$curso->category}}</p>
+  <p>Descripción: {{$curso->description}}</p>
+
+  <form action="{{route('cursos.destroy', $curso)}}" method="post">
+    @csrf
+    @method('delete')
+    <button type="submit">Eliminar</button>
+  </form>
+
 @endsection

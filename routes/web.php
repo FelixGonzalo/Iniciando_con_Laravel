@@ -25,14 +25,19 @@ Route::get('/', HomeController::class);
 // Route::get('cursos', function () {
 //     return "bienvenido a la pag cursos";
 // });
-Route::get('cursos', [CursoController::class, 'index'])->name('cursos.index');
+
+// rutas usadas
+// Route::get('cursos', [CursoController::class, 'index'])->name('cursos.index');
+
 // Route::get('cursos', 'CursoController@index');
 
 // Route::get('cursos/create', function () {
 //     return "En esta pag podrás crear un curso";
 // });
-Route::get('cursos/create', [CursoController::class, 'create'])->name('cursos.create');
-Route::post('cursos',[CursoController::class, 'store'])->name('cursos.store');
+
+// rutas usadas
+// Route::get('cursos/create', [CursoController::class, 'create'])->name('cursos.create');
+// Route::post('cursos',[CursoController::class, 'store'])->name('cursos.store');
 
 // Route::get('cursos/{curso}', function ($curso) {
 //     return "Bienvenido al curso: $curso";
@@ -49,10 +54,17 @@ Route::post('cursos',[CursoController::class, 'store'])->name('cursos.store');
 //     }
 // });
 // Route::get('cursos/{id}', [CursoController::class, 'show'])->name('cursos.show');
-Route::get('cursos/{curso}', [CursoController::class, 'show'])->name('cursos.show');
-Route::get('cursos/{curso}/edit', [CursoController::class, 'edit'])->name('cursos.edit');
-Route::put('cursos/{curso}', [CursoController::class, 'update'])->name('cursos.update');
+
+// rutas usadas
+// Route::get('cursos/{curso}', [CursoController::class, 'show'])->name('cursos.show');
+// Route::get('cursos/{curso}/edit', [CursoController::class, 'edit'])->name('cursos.edit');
+// Route::put('cursos/{curso}', [CursoController::class, 'update'])->name('cursos.update');
+// Route::delete('cursos/{curso}', [CursoController::class, 'destroy'])->name('cursos.destroy');
 
 // COMO ASIGNAR RUTA A CONTROLADOR: use App\Http\Controllers\HomeController;
 // EN LARAVEL 8
 //Route::get('/', HomeController::class);
+
+
+//names -> nombre de ruta en codigo y parameters sirve par el nombre de la ruta
+Route::resource('asignaturas', CursoController::class)->parameters(['asignaturas' => 'curso'])->names('cursos');
