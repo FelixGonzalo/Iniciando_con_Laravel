@@ -8,17 +8,22 @@
   <title>@yield('title')</title>
   <!-- favicon -->
   <!-- estilos -->
-  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .active {
+      color: red;
+    }
+  </style>
+  {{-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> --}}
 </head>
 
 <body>
-  <!-- header -->
-  <!-- nav -->
-
+  <!-- header y nav -->
+  @include('layouts.partials.header')
+  <!-- content -->
   @yield('content')
 
   <!-- footer -->
-
+  @include('layouts.partials.footer')
   <!-- script -->
 </body>
 

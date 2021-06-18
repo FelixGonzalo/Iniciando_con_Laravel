@@ -19,7 +19,7 @@ use App\Http\Controllers\CursoController;
 //     // return view('welcome');
 //     return "Bienvenido a la pag HOME";
 // });
-Route::get('/', HomeController::class);
+Route::get('/', HomeController::class)->name('home');
 // Route::get('/', 'HomeController');
 
 // Route::get('cursos', function () {
@@ -68,3 +68,6 @@ Route::get('/', HomeController::class);
 
 //names -> nombre de ruta en codigo y parameters sirve par el nombre de la ruta
 Route::resource('asignaturas', CursoController::class)->parameters(['asignaturas' => 'curso'])->names('cursos');
+
+// para contenido estatico  uri, viewname
+Route::view('nosotros', 'nosotros')->name('nosotros');

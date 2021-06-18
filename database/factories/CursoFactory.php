@@ -4,6 +4,8 @@ namespace Database\Factories;
 
 use App\Models\Curso;
 use Illuminate\Database\Eloquent\Factories\Factory;
+// para url amigables mediante un helper de laravel
+use Illuminate\Support\Str;
 
 class CursoFactory extends Factory
 {
@@ -21,8 +23,11 @@ class CursoFactory extends Factory
      */
     public function definition()
     {
+        $name = $this->faker->sentence();
         return [
-            'name' => $this->faker->sentence(),
+            'name' => $name,
+            // para url amigables mediante un helper de laravel
+            'slug' => Str::slug($name, '-'),
             'description' => $this->faker->paragraph() ,
             'category' => $this->faker->randomElement(['desarrollo Web', 'Diseño Web'])
         ];

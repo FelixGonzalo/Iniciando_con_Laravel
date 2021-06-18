@@ -15,4 +15,11 @@ class Curso extends Model
     protected $fillable = ['name', 'description', 'category'];
     // al reves de fillable, ignora los otros compos y llena el resto
     // protected $guarded = ['status'];
+
+    //para cambiar el id por defecto por el slug para ruta amigable
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
 }
