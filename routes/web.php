@@ -71,8 +71,12 @@ Route::get('/', HomeController::class)->name('home');
 Route::resource('asignaturas', CursoController::class)->parameters(['asignaturas' => 'curso'])->names('cursos');
 
 // para contenido estatico  uri, viewname
-Route::view('nosotros', 'nosotros')->name('nosotros');
+Route::view('nosotros', 'nosotros')->name('nosotros')->middleware('age');
 
 //para mandar correos electronicos
 Route::get('contactanos', [ContactanosController::class, 'index'])->name('contactanos.index');
 Route::post('contactanos', [ContactanosController::class, 'store'])->name('contactanos.store');
+
+Route::get('no-autorizado', function () {
+    return "Usted no es mayor de edad";
+});
